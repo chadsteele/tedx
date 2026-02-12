@@ -1,0 +1,70 @@
+html {
+  background-color: #000000;
+}
+.ted-body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 40px;
+  min-height: 100vh;
+}
+
+.ted-header {
+  margin-bottom: 60px;
+}
+
+.logo-container {
+  font-size: 48px;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+
+.ted-red {
+  color: #ff2b06;
+}
+
+.ted-white {
+  color: #ffffff;
+}
+
+.ted-tagline {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.ted-content {
+  max-width: 800px;
+}
+
+.breadcrumb {
+  font-size: 12px;
+  color: #cccccc;
+  margin-bottom: 10px;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid #333333;
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+p {
+  line-height: 1.6;
+  font-size: 18px;
+  color: #dddddd;
+}
+
+.paralax {
+  background-image: url('/images/tedx-parallax.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  margin: 40px 0;
+}
