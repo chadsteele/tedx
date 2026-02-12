@@ -9,7 +9,7 @@
 		},
 		{icon: "facebook", label: "Facebook", href: "#"},
 		{icon: "linkedin", label: "LinkedIn", href: "#"},
-		{icon: "twitter", label: "Twitter", href: "#"},
+		{icon: "bluesky", label: "Bluesky", href: "#"},
 		{icon: "instagram", label: "Instagram", href: "#"},
 	]
 </script>
