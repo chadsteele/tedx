@@ -24,7 +24,9 @@ At ALCHE, we break down the walls between academia and “the real world,” all
 Today, ALCHE is sought out by top tier international press to share our methods with the world. We are humbled to help nurture a new era of higher education that unleashes the amazing change young people can create. The moment for that change is long overdue.
 
 Join us.`,
-`<h2>Speakers</h2>
+`
+<div id="speakers"  />
+<h2 style="margin-top:50px" >Speakers</h2>
 Nominate someone amazing, perhaps that someone is you?!
 <img  src="/images/speaker.card.webp" alt="Speakers" class="full-width">
 
