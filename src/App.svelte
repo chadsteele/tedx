@@ -27,7 +27,7 @@
 		<div class="content">
 			{#each config.content as item}
 				{#each item.split("\n") as line}
-					<p>{line}</p>
+					<p>{@html line}</p>
 				{/each}
 			{/each}
 		</div>
