@@ -6,6 +6,7 @@
 	import Typewriter from "./components/typewriter.svelte"
 	import Logo from "./components/logo.svelte"
 	import Footer from "./components/footer.svelte"
+	import ProfileCard from "./components/profilecard.svelte"
 
 	onMount(() => {
 		// Update meta tags with config values
@@ -33,6 +34,18 @@
 				{/each}
 			{/each}
 		</div>
+
+		<script>
+		</script>
+
+		<ProfileCard
+			profileImage="/images/speaker.png"
+			title="SUSHRUTHI KRISHNA"
+			subtitle="Model & Architect"
+			description="Too often we underestimate the power of a touch, a smile, a kind word, a listening ear, an honest compliment, the smallest act of caring, all of which have the potential to turn a life around."
+			logo=""
+			date="14TH OCTOBER 2017"
+		/>
 	</section>
 </main>
 
