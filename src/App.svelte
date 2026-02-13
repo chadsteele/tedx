@@ -39,7 +39,7 @@
 		</script>
 
 		<h1 id="speakers" style="padding-top:50px">Speakers</h1>
-		Nominate someone amazing, perhaps that someone is you?!
+		<h2>Nominate someone amazing, perhaps that someone is you?!</h2>
 
 		<ProfileCard
 			profileImage="/images/speaker.png"

@@ -251,10 +251,12 @@
 			aspect-ratio: auto;
 			min-height: auto;
 			padding: 1rem;
+			margin: 0 1rem;
+			width: calc(100% - 2rem);
 			flex-direction: column;
 			align-items: center;
 			gap: 0;
-			overflow: visible;
+			overflow: hidden;
 		}
 
 		.white-box {
