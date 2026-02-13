@@ -1,7 +1,7 @@
 <script>
 	import {onMount} from "svelte"
 
-	export let phrases = ["Welcome to TEDxMauritius", "Ideas worth spreading"]
+	export let phrases = ["Welcome to<span class="ted-red">TEDx</span>ALCHE", "Ideas worth spreading"]
 	export let speed = 100
 	export let deleteSpeed = 50
 	export let pauseTime = 2000

@@ -1,13 +1,13 @@
-# TEDxMauritius
+#<span class="ted-red">TEDx</span>ALCHE
 
-A Svelte SPA project for TEDxMauritius event website.
+A Svelte SPA project for<span class="ted-red">TEDx</span>ALCHE event website.
 
 ## Features
 
 - Modern Svelte SPA framework
 - Vite build tool for fast development
 - Responsive design with custom styling
-- TED branding and styling
+-<span class="ted-red">TED</span> branding and styling
 
 ## Getting Started
 

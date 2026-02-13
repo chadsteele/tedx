@@ -1,6 +1,6 @@
 # Image Assets Directory
 
-This directory contains all image assets for the TEDxMauritius project.
+This directory contains all image assets for the<span class="ted-red">TEDx</span>ALCHE project.
 
 ## Directory Structure
 

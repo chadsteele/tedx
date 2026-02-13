@@ -1,4 +1,6 @@
 <script>
+	import {onMount} from "svelte"
+
 	export let profileImage
 	export let name
 	export let subname
@@ -6,9 +8,32 @@
 	export let subtitle
 	export let description
 	export let logo = "/images/logos/logo.sun.png"
+
+	let visible = false
+	let cardElement
+
+	onMount(() => {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						visible = true
+						observer.unobserve(entry.target)
+					}
+				})
+			},
+			{threshold: 0.5},
+		)
+
+		if (cardElement) {
+			observer.observe(cardElement)
+		}
+
+		return () => observer.disconnect()
+	})
 </script>
 
-<div class="card-container">
+<div class="card-container" class:visible bind:this={cardElement}>
 	<div class="background-decor">
 		<div
 			class="bg-image"
@@ -85,9 +110,18 @@
 		justify-content: center;
 		overflow: hidden;
 		margin: auto;
-		animation: fadeIn 1s ease-out;
 		border-radius: 5px;
 		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+		opacity: 0;
+		transform: translateY(30px);
+		transition:
+			opacity 0.6s ease-out,
+			transform 0.6s ease-out;
+	}
+
+	.card-container.visible {
+		opacity: 1;
+		transform: translateY(0);
 	}
 
 	.background-decor .circle {

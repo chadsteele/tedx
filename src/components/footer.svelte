@@ -5,7 +5,7 @@
 		{
 			icon: "envelope",
 			label: "Email",
-			href: "mailto:info@tedxmauritius.com",
+			href: "mailto:info@TEDxALCHE.com",
 		},
 		{icon: "facebook", label: "Facebook", href: "#"},
 		{icon: "linkedin", label: "LinkedIn", href: "#"},
@@ -34,20 +34,24 @@
 			{/each}
 		</div>
 
-		<!-- What is TEDx Section -->
+		<!-- What is<span >TEDx</span> Section -->
 		<div class="ted-footer-content">
-			<h2>What is <span class="ted-red">TEDx</span>?</h2>
+			<h2>What is <span>TEDx</span>?</h2>
 			<p>
-				In the spirit of ideas worth spreading, TED has created a
-				program called TEDx. TEDx is a program of local, self-organized
-				events that bring people together to share a TED-like
-				experience. Our event is called <span class="ted-red"
-					>{config.title}</span
-				>, where x = independently organized TED event. At our
-				{config.title} event, TEDTalks video and live speakers will combine
-				to spark deep discussion and connection in a small group. The TED
-				Conference provides general guidance for the TEDx program, but individual
-				TEDx events, including ours, are self-organized. Please note our
+				In the spirit of ideas worth spreading,<span>TED</span>
+				has created a program called<span>TEDx</span>.<span>TEDx</span>
+				is a program of local, self-organized events that bring people together
+				to share a<span>TED</span>-like experience. Our event is called
+				<span>{config.title}</span>, where x = independently organized<span
+					>TED</span
+				>
+				event. At our
+				{config.title} event,<span>TED</span>Talks video and live
+				speakers will combine to spark deep discussion and connection in
+				a small group. The<span>TED</span>
+				Conference provides general guidance for the<span>TEDx</span>
+				program, but individual<span>TED</span>x events, including ours,
+				are self-organized. Please note our
 				<a href="/terms-and-conditions" class="ted-link"
 					>Terms and Conditions</a
 				>.
@@ -58,8 +62,8 @@
 		<div class="ted-footer-bottom">
 			<p>
 				COPYRIGHT {config.title.toUpperCase()} © {new Date().getFullYear()}.
-				ALL RIGHTS RESERVED. THIS INDEPENDENT TEDX EVENT IS OPERATED
-				UNDER LICENSE FROM
+				ALL RIGHTS RESERVED. THIS INDEPENDENT<span>TEDx</span>
+				EVENT IS OPERATED UNDER LICENSE FROM
 				<a href="https://www.ted.com" class="ted-link">TED</a>.
 			</p>
 		</div>
