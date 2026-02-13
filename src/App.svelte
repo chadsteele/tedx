@@ -60,6 +60,17 @@
 			subname="Impact-Driven Entrepreneur"
 			description={`Entrepreneurial Leadership student at the African Leadership College of Higher Education, passionate about education, digital innovation, and youth empowerment. Dedicated to fostering a culture of ideas worth spreading and inspiring positive change in the community.`}
 		/>
+		<br />
+		<br />
+
+		<ProfileCard
+			profileImage="/images/team/patii.png"
+			title="DIRECTOR"
+			subtitle="Marketing"
+			name="Patii"
+			subname="Comms & Marketing Specialist"
+			description={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`}
+		/>
 	</section>
 </main>
 

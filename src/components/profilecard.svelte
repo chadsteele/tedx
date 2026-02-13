@@ -72,6 +72,7 @@
 	}
 
 	.card-container {
+		margin-top: 30px;
 		position: relative;
 		width: 100%;
 		max-width: 800px;
@@ -248,6 +249,7 @@
 
 	@media (max-width: 600px) {
 		.card-container {
+			margin-top: 30px;
 			aspect-ratio: auto;
 			min-height: auto;
 			padding: 1rem;
