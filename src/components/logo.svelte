@@ -1,53 +1,59 @@
 <script>
-	import config from "../../config.js"
-
-	export let href = "/"
+	export let eventName = "ALCHE"
+	export let tagline = `<span class="red-x">x</span> = independently organized TED event`
 </script>
 
-<a {href} class="ted-brand">
-	<span class="ted-red">TED<span class="ted-x">x</span></span>
-	<span class="ted-white">{config.location}</span>
-</a>
+<div class="tedx-container">
+	<div class="tedx-logo">
+		<span class="ted-brand">TED<span class="ted-x">x</span></span>
+		<span class="event-name">{eventName}</span>
+	</div>
+	{#if tagline}
+		<div class="tagline">
+			{@html tagline}
+		</div>
+	{/if}
+</div>
 
 <style>
-	.ted-brand {
-		text-decoration: none;
-		font-weight: 900;
-		letter-spacing: -2px;
-		display: inline-flex;
-		align-items: center;
-		gap: 2px;
-		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-			"Helvetica Neue", sans-serif;
-		font-size: 1em;
-	}
-
-	:global(.ted-brand .ted-red) {
-		color: #ff2b06;
-		display: inline-flex;
-		align-items: center;
-		gap: 0;
-		line-height: 1;
-		font-weight: 900;
-		letter-spacing: -2px;
-	}
-
-	:global(.ted-brand .ted-red .ted-x) {
-		font-size: 0.6em;
-		position: relative;
-		top: -0.3em;
-		margin-left: 1px;
-	}
-
-	:global(.ted-brand .ted-white) {
+	.tedx-container {
+		display: inline-block;
+		background-color: #000000;
+		padding: 40px;
+		font-family: Helvetica, Arial, sans-serif;
 		color: #ffffff;
-		font-weight: 400;
-		letter-spacing: normal;
 	}
 
-	:global(.ted-brand .ted-red sup) {
-		font-size: 0.6em;
-		vertical-align: super;
-		font-weight: 900;
+	.tedx-logo {
+		line-height: 1;
+		letter-spacing: -2px;
+		margin-bottom: 5px;
+		font-size: 2em;
+	}
+
+	.ted-brand {
+		color: #eb0028;
+		font-weight: bold;
+	}
+
+	.ted-x {
+		text-transform: lowercase;
+		font-weight: bold;
+	}
+
+	.event-name {
+		color: #ffffff;
+		font-weight: normal;
+	}
+
+	.tagline {
+		font-size: 0.75rem;
+		font-weight: bold;
+		letter-spacing: 0;
+	}
+
+	.red-x {
+		color: #eb0028;
+		text-transform: lowercase;
 	}
 </style>

@@ -8,12 +8,9 @@ export default {
     `,
 
     phrases:[
-`<span class="ted-red">Ideas</span> worth spreading`, `Sponsored by <span class="ted-red">ALCHE</span> - Reimagining Education`, `Join us for an unforgettable day of <span class="ted-red">inspiration</span>, <span class="ted-red">innovation</span>, and <span class="ted-red">connection</span> at <span class="ted-red">TED<sup>x</sup></span>Mauritius!`, ],
+`<span class="ted-red">Ideas</span> worth spreading`, `Sponsored by <span class="ted-red">ALCHE</span> - Reimagining Education`, `Join us for an unforgettable day of <span class="ted-red">inspiration</span>, <span class="ted-red">innovation</span>, and <span class="ted-red">connection</span> at <span class="ted-red">TED<sup>x</sup></span>ALCHE!`, ],
 
 content:[ `
-
-    <img src="/images/logos/logo.alche.black.png" alt="Logos" style="height: 400px; width: auto; display: block; margin: 0 auto;"  />
-
     African Leadership College of Higher Education provides higher education for a higher purpose. We believe that young people hold the potential to become the ethical, entrepreneurial leaders our continent and planet need. Our role is to unlock that potential through a one-of-a-kind learning experience that gives students the foundation for a lifetime of leading positive change.
 We have designed our entire institution around young people’s agency and autonomy as changemakers. Students declare missions, not majors – defining their educational experience by the impact they want to make in the world. And students needn’t wait until after graduation to start making that impact.
 

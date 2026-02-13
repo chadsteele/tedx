@@ -21,12 +21,19 @@
 
 <main class="ted-body">
 	<section id="home" class="ted-content">
-		<h1>Welcome to <Logo /></h1>
+		<h1>We are ALCHE, Mauritius</h1>
 		<div
 			style="margin-top: 20px; font-size: 1.2em; line-height: 1.5; color: gray; height:100px; vertical-align: middle; display:flex; align-items:center; justify-content:center;"
 		>
 			<Typewriter phrases={config.phrases} speed={100} />
 		</div>
+
+		<img
+			src="/images/backgrounds/tedx-background.jpg"
+			alt="TEDx event background"
+			class="full-width hero-image"
+		/>
+
 		<div class="content">
 			{#each config.content as item}
 				{#each item.split("\n") as line}
