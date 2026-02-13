@@ -1,10 +1,11 @@
 <script>
 	export let profileImage
+	export let name
+	export let subname
 	export let title
 	export let subtitle
 	export let description
-	export let logo
-	export let date = "14TH OCTOBER 2017"
+	export let logo = "/images/logos/logo.sun.png"
 </script>
 
 <div class="card-container">
@@ -19,8 +20,8 @@
 
 	<div class="white-box">
 		<div class="vertical-text">
-			<span class="speaker-label">SPEAKER</span>
-			<span class="date-label">{date}</span>
+			<span class="speaker-label">{title}</span>
+			<span class="date-label">{subtitle}</span>
 		</div>
 
 		<div class="img-wrapper">
@@ -28,14 +29,12 @@
 		</div>
 	</div>
 	<div class="info-overlay">
-		<h1 class="title">{title}</h1>
-		<h2 class="subtitle">{subtitle}</h2>
+		<h1 class="title">{name}</h1>
+		<h2 class="subtitle">{subname}</h2>
 		<hr class="divider" />
-		<p class="description">{description}</p>
-	</div>
-
-	<div class="footer-logo">
-		<img src={logo} alt="Event Logo" />
+		<div class="description">
+			{description}
+		</div>
 	</div>
 </div>
 
@@ -76,6 +75,7 @@
 		position: relative;
 		width: 100%;
 		max-width: 800px;
+		height: auto;
 		aspect-ratio: 8 / 5;
 		background-color: #f0f0f0;
 		font-family: "Helvetica", "Arial", sans-serif;
@@ -155,6 +155,7 @@
 		animation: fadeIn 1.5s ease-in;
 		writing-mode: vertical-rl;
 		transform: rotate(180deg);
+		z-index: 3;
 	}
 
 	.speaker-label {
@@ -180,6 +181,7 @@
 		height: 100%;
 		object-fit: cover;
 		animation: slideUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+		z-index: 2;
 	}
 
 	.info-overlay {
@@ -194,6 +196,7 @@
 		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
 		z-index: 1;
 		animation: slideUp 0.8s ease-out 0.2s both;
+		overflow: visible;
 	}
 
 	.title {
@@ -232,11 +235,10 @@
 	}
 
 	.footer-logo {
-		position: absolute;
-		bottom: 3%;
-		right: 5%;
-		height: 8%;
-		animation: fadeIn 2s ease-in;
+		display: block;
+		height: 7em;
+		float: right;
+		animation: float 3s ease-in-out;
 	}
 
 	.footer-logo img {
@@ -247,33 +249,61 @@
 	@media (max-width: 600px) {
 		.card-container {
 			aspect-ratio: auto;
-			height: auto;
-			padding: 2rem 0;
-			flex-direction: column;
-		}
-		.white-box {
-			height: auto;
+			min-height: auto;
+			padding: 1rem;
 			flex-direction: column;
 			align-items: center;
-			padding-bottom: 2rem;
+			gap: 0;
+			overflow: visible;
 		}
-		.img-wrapper {
+
+		.white-box {
 			position: relative;
-			left: 0;
-			height: 300px;
-			margin-top: -10%;
+			left: auto;
+			top: auto;
+			width: 90%;
+			height: auto;
+			min-height: 250px;
 		}
+
+		.img-wrapper {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			left: auto;
+			height: 110%;
+			z-index: 1;
+		}
+
 		.info-overlay {
 			position: relative;
-			width: 85%;
-			right: 0;
-			top: 0;
+			right: auto;
+			top: auto;
+			width: 90%;
+			padding: 5%;
+			padding-left: 5%;
 			transform: none !important;
-			box-shadow: none;
-			padding: 1rem;
+			margin-top: -20px;
+			z-index: 5;
 		}
+
 		.vertical-text {
-			display: none;
+			left: 20px;
+			top: 10px;
+		}
+
+		.speaker-label {
+			font-size: 2rem;
+		}
+
+		.background-decor .circle {
+			width: 80px;
+			height: 80px;
+			border-width: 2rem;
+		}
+
+		.footer-logo {
+			display: block;
 		}
 	}
 </style>

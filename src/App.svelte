@@ -38,13 +38,27 @@
 		<script>
 		</script>
 
+		<h1 id="speakers" style="padding-top:50px">Speakers</h1>
+		Nominate someone amazing, perhaps that someone is you?!
+
 		<ProfileCard
 			profileImage="/images/speaker.png"
-			title="SUSHRUTHI KRISHNA"
-			subtitle="Model & Architect"
+			title="SPEAKER"
+			subtitle="change maker"
+			name="SUSHRUTHI KRISHNA"
+			subname="Model & Architect"
 			description="Too often we underestimate the power of a touch, a smile, a kind word, a listening ear, an honest compliment, the smallest act of caring, all of which have the potential to turn a life around."
-			logo=""
-			date="14TH OCTOBER 2017"
+		/>
+
+		<h1 id="about" style="padding-top:50px">About us</h1>
+
+		<ProfileCard
+			profileImage="/images/team/ishimwe.png"
+			title="FOUNDER"
+			subtitle="CEO"
+			name="Olivier ISHIMWE"
+			subname="Impact-Driven Entrepreneur"
+			description={`Entrepreneurial Leadership student at the African Leadership College of Higher Education, passionate about education, digital innovation, and youth empowerment. Dedicated to fostering a culture of ideas worth spreading and inspiring positive change in the community.`}
 		/>
 	</section>
 </main>

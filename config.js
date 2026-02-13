@@ -25,10 +25,7 @@ Today, ALCHE is sought out by top tier international press to share our methods 
 
 Join us.`,
 `
-<div id="speakers"  />
-<h2 style="margin-top:50px" >Speakers</h2>
-Nominate someone amazing, perhaps that someone is you?!
-<img  src="/images/speaker.card.webp" alt="Speakers" class="full-width">
+
 
 
 
