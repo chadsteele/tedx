@@ -20,19 +20,13 @@
 <Header />
 
 <main class="ted-body">
-	<section id="home" class="ted-content">
-		<h1>We are ALCHE, Mauritius</h1>
+	<section class="ted-content">
+		<h1 id="home">We are ALCHE, Mauritius</h1>
 		<div
-			style="margin-top: 20px; font-size: 1.2em; line-height: 1.5; color: gray; height:100px; vertical-align: middle; display:flex; align-items:center; justify-content:center;"
+			style="margin-top: 20px; font-size: 1.2em; line-height: 1.5; color: gray; min-height: 100px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 1rem 0;"
 		>
 			<Typewriter phrases={config.phrases} speed={100} />
 		</div>
-
-		<img
-			src="/images/backgrounds/tedx-background.jpg"
-			alt="TEDx event background"
-			class="full-width hero-image"
-		/>
 
 		<div class="content">
 			{#each config.content as item}

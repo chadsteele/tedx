@@ -15,7 +15,7 @@
 	const navItems = [
 		{label: "Home", href: "#home"},
 		{label: "Speakers", href: "#speakers"},
-		{label: "Events", href: "#events"},
+		{label: "Dates", href: "#dates"},
 		{label: "About", href: "#about"},
 		{label: "Contact", href: "#contact"},
 	]
@@ -24,7 +24,7 @@
 <nav class="ted-nav">
 	<div class="ted-nav-container">
 		<div class="ted-nav-logo">
-			<Logo href="/" />
+			<Logo href="#home" />
 		</div>
 
 		<ul class="ted-nav-list" class:open={isMenuOpen}>
@@ -36,19 +36,6 @@
 		</ul>
 
 		<div class="ted-nav-actions">
-			<button class="ted-nav-search" aria-label="Search">
-				<svg
-					width="20"
-					height="20"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2"
-				>
-					<circle cx="11" cy="11" r="8"></circle>
-					<path d="m21 21-4.35-4.35"></path>
-				</svg>
-			</button>
 			<button class="ted-nav-share" aria-label="Share">
 				<svg
 					width="20"
@@ -140,6 +127,7 @@
 	.ted-nav-item a {
 		color: #ffffff;
 		text-decoration: none;
+		border-bottom: none;
 		font-size: 14px;
 		font-weight: 500;
 		transition: color 0.3s ease;
@@ -149,6 +137,7 @@
 
 	.ted-nav-item a:hover {
 		color: #ff2b06;
+		border-bottom: none;
 	}
 
 	.ted-menu-toggle {

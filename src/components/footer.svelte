@@ -16,24 +16,6 @@
 
 <footer class="ted-footer">
 	<div class="ted-footer-container">
-		<!-- Social Media Links -->
-		<div class="ted-social-links">
-			{#each socialLinks as link (link.label)}
-				<a
-					href={link.href}
-					class="ted-social-icon"
-					aria-label={link.label}
-					title={link.label}
-				>
-					<i
-						class="fab fa-{link.icon === 'envelope'
-							? 'envelope'
-							: link.icon}"
-					></i>
-				</a>
-			{/each}
-		</div>
-
 		<!-- What is<span >TEDx</span> Section -->
 		<div class="ted-footer-content">
 			<h2>What is <span>TEDx</span>?</h2>
@@ -61,11 +43,19 @@
 		<!-- Footer Bottom -->
 		<div class="ted-footer-bottom">
 			<p>
-				COPYRIGHT {config.title.toUpperCase()} © {new Date().getFullYear()}.
-				ALL RIGHTS RESERVED. THIS INDEPENDENT<span>TEDx</span>
-				EVENT IS OPERATED UNDER LICENSE FROM
+				Copyright {config.title.toUpperCase()} © {new Date().getFullYear()}.
+				ALL RIGHTS RESERVED.
+			</p>
+			<p>
+				This is an independent <span>TEDx</span>
+				event, operated under license from
 				<a href="https://www.ted.com" class="ted-link">TED</a>.
 			</p>
+			<img
+				src="/images/logos/logo.full.png"
+				alt="TEDxALCHE"
+				style="height: 30px; margin-top: 10px;"
+			/>
 		</div>
 	</div>
 </footer>

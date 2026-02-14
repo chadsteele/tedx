@@ -63,6 +63,18 @@ p {
   color: #dddddd;
 }
 
+a {
+  color: #ff2b06;
+  text-decoration: none;
+  border-bottom: 1px solid #ff2b06;
+  transition: color 0.3s ease, border-bottom-color 0.3s ease;
+}
+
+a:hover {
+  color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
 .paralax {
   background-image: url('/images/tedx-parallax.jpg');
   background-attachment: fixed;
@@ -72,4 +84,13 @@ p {
   margin: 40px 0;
 }
 
-.full-width { width: 100%; height: auto; } @media (max-width: 600px) { .ted-body { padding: 20px; } .logo-container { font-size: 32px; } .ted-content { padding: 0 10px; }.paralax { height: 200px; } .ted-nav-actions { display: none; } }
+.full-width { width: 100%; height: auto; }
+.hero-image { margin: 20px 0; border-radius: 8px;  }
+
+@media (max-width: 600px) {
+  .ted-body { padding: 20px; }
+  .logo-container { font-size: 32px; }
+  .ted-content { padding: 0 10px; }
+  .paralax { height: 200px; }
+  .ted-nav-actions { display: none; }
+}

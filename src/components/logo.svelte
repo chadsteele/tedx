@@ -7,6 +7,14 @@
 </a>
 
 <style>
+	.logo-link {
+		border-bottom: none;
+	}
+
+	.logo-link:hover {
+		border-bottom: none;
+	}
+
 	.logo {
 		height: 3em;
 		width: auto;
