@@ -8,6 +8,7 @@
 	export let subtitle
 	export let description
 	export let logo = "/images/logos/logo.sun.png"
+	export let link = ""
 
 	let visible = false
 	let cardElement
@@ -33,7 +34,16 @@
 	})
 </script>
 
-<div class="card-container" class:visible bind:this={cardElement}>
+<div
+	class="card-container"
+	class:visible
+	class:clickable={link}
+	bind:this={cardElement}
+	on:click={() => link && window.open(link)}
+	on:keydown={(e) => e.key === "Enter" && link && window.open(link)}
+	role="button"
+	tabindex="0"
+>
 	<div class="background-decor">
 		<div
 			class="bg-image"
@@ -97,7 +107,7 @@
 	}
 
 	.card-container {
-		margin-top: 30px;
+		margin: 3em auto;
 		position: relative;
 		width: 100%;
 		max-width: 800px;
@@ -109,14 +119,27 @@
 		align-items: center;
 		justify-content: center;
 		overflow: hidden;
-		margin: auto;
 		border-radius: 5px;
 		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
 		opacity: 0;
 		transform: translateY(30px);
 		transition:
 			opacity 0.6s ease-out,
-			transform 0.6s ease-out;
+			transform 0.3s ease-out;
+	}
+
+	.card-container.clickable {
+		cursor: pointer;
+	}
+
+	.card-container.clickable:hover,
+	.card-container.clickable:active {
+		transform: scale(1.1);
+	}
+
+	.card-container.clickable.visible:hover,
+	.card-container.clickable.visible:active {
+		transform: translateY(0) scale(1.1);
 	}
 
 	.card-container.visible {

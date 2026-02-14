@@ -50,6 +50,7 @@
 
 		<ProfileCard
 			profileImage="/images/speaker.png"
+			link="https://www.ted.com/talks/sushruthi_krishna_the_success_story_of_a_girl_from_bangalore"
 			title="SPEAKER"
 			subtitle="change maker"
 			name="SUSHRUTHI KRISHNA"
@@ -61,14 +62,13 @@
 
 		<ProfileCard
 			profileImage="/images/team/ishimwe.png"
+			link="https://www.linkedin.com/in/ishimweolivier/"
 			title="FOUNDER"
 			subtitle="CEO"
 			name="Olivier ISHIMWE"
 			subname="Impact-Driven Entrepreneur"
 			description={`Entrepreneurial Leadership student at the African Leadership College of Higher Education, passionate about education, digital innovation, and youth empowerment. Dedicated to fostering a culture of ideas worth spreading and inspiring positive change in the community.`}
 		/>
-		<br />
-		<br />
 
 		<ProfileCard
 			profileImage="/images/team/patii.png"
