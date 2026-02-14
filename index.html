@@ -13,6 +13,20 @@
 </head>
 
 <body>
+    <!-- Hidden form for Netlify to detect at build time -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+        <input name="bot-field" />
+        <input name="name" />
+        <input name="email" />
+        <input name="phone" />
+        <input name="volunteer" type="checkbox" />
+        <input name="advertise" type="checkbox" />
+        <input name="donate" type="checkbox" />
+        <input name="nominateSpeaker" type="checkbox" />
+        <input name="mailingList" type="checkbox" />
+        <textarea name="message"></textarea>
+    </form>
+
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
 </body>

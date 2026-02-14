@@ -40,6 +40,50 @@ Today, ALCHE is sought out by top tier international press to share our methods 
 
 <a href="https://alcheducation.com/admissions/" target="_blank">Join us.</a>`,
 
+`<h1 id="dates">Event Dates</h1>
+<p>Since your event is scheduled for October 5, 2026, you should follow the standard TEDx organizer timeline, which typically begins 9 to 12 months before the event date. Based on TED.com guidelines and typical TEDx cycles for 2026, here are the critical dates and deadlines you should note:</p>
+
+<p><strong>Speaker Submission Deadline: February &ndash; April 2026</strong>
+
+
+
+For an October event, most organizers close their speaker applications between February and April. This allows for a rigorous 5 to 6 month vetting and coaching process.</p>
+<ul>
+<li>Application Launch: Late 2025 or January 2026.</li>
+<li>Submission Deadline: Aim for no later than March 31, 2026, to stay on schedule for speaker selections in May.</li>
+</ul>
+
+<p><strong>Speaker Selection and Announcement: May 2026</strong>
+
+
+
+By May, you should have finalized your speaker list. This timing is essential because it gives you the summer months to work with speakers on their scripts and stage presence.</p>
+
+<p><strong>Speaker Training and Rehearsals: June &ndash; August 2026</strong>
+
+
+
+TEDx requires a significant time investment in speaker coaching. You should plan for:</p>
+<ul>
+<li>Outline and Script Reviews: June.</li>
+<li>Slide Preparation: July.</li>
+<li>Active Rehearsals: August and September.</li>
+</ul>
+
+<p><strong>Licensing and Logistics: October 2025 &ndash; January 2026</strong></p>
+<ul>
+<li>License Application: You must apply for your license at least 3 months before your event, but 9 to 12 months is recommended. If you haven't applied yet, do so immediately.</li>
+<li>Venue Booking: Secure your venue at least 9 months out (January 2026) to ensure the date is held.</li>
+</ul>
+
+<p><strong>Post-Event Deadlines: October &ndash; November 2026</strong></p>
+<ul>
+<li>Video Uploads: You are required to upload all talk videos to the TEDx YouTube channel within one month of your event (by November 5, 2026).</li>
+<li>Speaker Releases: Ensure all signed release forms are collected and archived before the speakers take the stage on October 5.</li>
+</ul>
+
+`
+
 
 ]; }
 

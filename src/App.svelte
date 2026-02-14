@@ -7,6 +7,7 @@
 	import Logo from "./components/logo.svelte"
 	import Footer from "./components/footer.svelte"
 	import ProfileCard from "./components/profilecard.svelte"
+	import Contact from "./components/contact.svelte"
 
 	onMount(() => {
 		// Update meta tags with config values
@@ -39,8 +40,14 @@
 		<script>
 		</script>
 
-		<h1 id="speakers" style="padding-top:50px">Speakers</h1>
+		<h1 id="speakers">Speakers</h1>
 		<h2>Nominate someone amazing, perhaps that someone is you?!</h2>
+		<p>
+			This is just a sample description. We will update this section with
+			the actual speaker lineup once we have it finalized. Stay tuned for
+			some incredible talks and inspiring stories from our amazing
+			speakers!
+		</p>
 
 		<ProfileCard
 			profileImage="/images/speaker.png"
@@ -72,6 +79,9 @@
 			subname="Comms & Marketing Specialist"
 			description={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`}
 		/>
+
+		<h1 id="contact" style="padding-top:50px">Contact us</h1>
+		<Contact />
 	</section>
 </main>
 

@@ -14,8 +14,8 @@
 
 	const navItems = [
 		{label: "Home", href: "#home"},
-		{label: "Speakers", href: "#speakers"},
 		{label: "Dates", href: "#dates"},
+		{label: "Speakers", href: "#speakers"},
 		{label: "About", href: "#about"},
 		{label: "Contact", href: "#contact"},
 	]

@@ -15,6 +15,21 @@ html {
   margin-bottom: 60px;
 }
 
+[id]{
+  padding-top:70px
+}
+
+ul {
+  margin-left: 1em;
+  padding-left: 1.5em;
+  list-style-type: disc;
+}
+
+li {
+   margin-left: 2em;
+  margin-bottom: 0.5em;
+}
+
 .logo-container {
   font-size: 48px;
   font-weight: bold;
