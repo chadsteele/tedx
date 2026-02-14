@@ -48,6 +48,7 @@
 			some incredible talks and inspiring stories from our amazing
 			speakers!
 		</p>
+		<a href="#contact" class="ted-link">Nominate a speaker</a>
 
 		<ProfileCard
 			profileImage="/images/speaker.png"
