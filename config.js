@@ -22,7 +22,7 @@ export default {
 
 get content() { return [ `
 
-	<img src="/images/backgrounds/tedx-background.jpg" alt="TEDx event background" class="full-width hero-image" />
+	<img src="/images/backgrounds/tedx-background.png" alt="TEDx event background" class="full-width hero-image" />
 
         <h2>TEDx, Mauritius on ${this.date}</h2>
         Hosted by the African Leadership College of Higher Education.
@@ -32,7 +32,7 @@ get content() { return [ `
 
 We have designed our entire institution around young people’s agency and autonomy as changemakers. Students declare missions, not majors – defining their educational experience by the impact they want to make in the world. And students needn’t wait until after graduation to start making that impact.
 
-<img src="/images/alche.mountains.jpg" class="full-width hero-image"/>
+<img src="/images/alche.mountains.png" class="full-width hero-image"/>
 
 At ALCHE, we break down the walls between academia and “the real world,” allowing opportunities for learning in hands-on settings like internships and off-campus projects. We believe students learn best when they can see their education in action, and that some of the greatest lessons come not only from our world-class faculty and staff, but also from industry professionals and peers.
 
