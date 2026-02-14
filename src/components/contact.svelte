@@ -13,7 +13,62 @@
 	let submitted = false
 	let error = ""
 
+	let errors = {
+		name: "",
+		email: "",
+		phone: "",
+	}
+
+	// Clear errors as user types
+	$: if (name.trim() && errors.name) {
+		errors.name = ""
+	}
+
+	$: if (email.trim() && errors.email) {
+		if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+			errors.email = ""
+		} else if (errors.email === "Email is required") {
+			errors.email = ""
+		}
+	}
+
+	$: if (phone.trim().length >= 7 && errors.phone) {
+		errors.phone = ""
+	}
+
+	function validateForm() {
+		let isValid = true
+		errors = {name: "", email: "", phone: ""}
+
+		if (!name.trim()) {
+			errors.name = "Name is required"
+			isValid = false
+		}
+
+		if (!email.trim()) {
+			errors.email = "Email is required"
+			isValid = false
+		} else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+			errors.email = "Please enter a valid email address"
+			isValid = false
+		}
+
+		if (!phone.trim()) {
+			errors.phone = "Phone is required"
+			isValid = false
+		} else if (phone.trim().length < 7) {
+			errors.phone = "Phone must be at least 7 characters"
+			isValid = false
+		}
+
+		return isValid
+	}
+
 	async function handleSubmit(event) {
+		if (!validateForm()) {
+			return
+		}
+
 		const form = event.target
 		const formData = new FormData(form)
 
@@ -49,6 +104,7 @@
 		method="POST"
 		data-netlify="true"
 		data-netlify-honeypot="bot-field"
+		novalidate
 	>
 		<input type="hidden" name="form-name" value="contact" />
 		<p class="hidden">
@@ -59,35 +115,53 @@
 			<p class="error-message">{error}</p>
 		{/if}
 
-		<div class="form-group">
-			<label for="name">Name</label>
+		<div class="form-group" class:has-error={errors.name}>
 			<input
 				type="text"
 				id="name"
 				name="name"
 				bind:value={name}
-				required
+				placeholder=" "
+				class:input-error={errors.name}
 			/>
+			<label for="name">Name</label>
+			{#if errors.name}
+				<span class="field-error">{errors.name}</span>
+			{/if}
 		</div>
 
-		<div class="form-group">
-			<label for="email">Email</label>
+		<div class="form-group" class:has-error={errors.email}>
 			<input
 				type="email"
 				id="email"
 				name="email"
 				bind:value={email}
-				required
+				placeholder=" "
+				class:input-error={errors.email}
 			/>
+			<label for="email">Email</label>
+			{#if errors.email}
+				<span class="field-error">{errors.email}</span>
+			{/if}
 		</div>
 
-		<div class="form-group">
+		<div class="form-group" class:has-error={errors.phone}>
+			<input
+				type="tel"
+				id="phone"
+				name="phone"
+				bind:value={phone}
+				placeholder=" "
+				class:input-error={errors.phone}
+			/>
 			<label for="phone">Phone</label>
-			<input type="tel" id="phone" name="phone" bind:value={phone} />
+			{#if errors.phone}
+				<span class="field-error">{errors.phone}</span>
+			{/if}
 		</div>
 
 		<fieldset class="checkbox-group">
-			<legend>I'm interested in:</legend>
+			<legend>Select</legend>
 
 			<label class="checkbox-label">
 				<input
@@ -132,9 +206,14 @@
 		</fieldset>
 
 		<div class="form-group">
-			<label for="message">Message</label>
-			<textarea id="message" name="message" bind:value={message} rows="5"
+			<textarea
+				id="message"
+				name="message"
+				bind:value={message}
+				rows="5"
+				placeholder=" "
 			></textarea>
+			<label for="message">Message</label>
 		</div>
 
 		<button type="submit">Send Message</button>
@@ -164,18 +243,53 @@
 		margin-bottom: 1rem;
 	}
 
+	.field-error {
+		display: block;
+		color: #ff2b06;
+		font-size: 0.8rem;
+		margin-top: 0.5rem;
+		padding-left: 0.25rem;
+	}
+
+	.input-error {
+		border-color: #ff2b06 !important;
+	}
+
+	.has-error label {
+		color: #ff2b06 !important;
+	}
+
 	h2 {
 		margin-bottom: 1.5rem;
 	}
 
 	.form-group {
-		margin-bottom: 1rem;
+		position: relative;
+		margin-bottom: 1.75rem;
 	}
 
-	label {
-		display: block;
-		margin-bottom: 0.5rem;
-		font-weight: 500;
+	.form-group label {
+		position: absolute;
+		left: 1rem;
+		top: 1rem;
+		font-size: 1rem;
+		color: #999;
+		pointer-events: none;
+		transition: all 0.2s ease;
+		background-color: transparent;
+		padding: 0;
+	}
+
+	.form-group input:focus + label,
+	.form-group input:not(:placeholder-shown) + label,
+	.form-group textarea:focus + label,
+	.form-group textarea:not(:placeholder-shown) + label {
+		top: -0.6rem;
+		left: 0.75rem;
+		font-size: 0.75rem;
+		color: #ccc;
+		background-color: #000;
+		padding: 0 0.35rem;
 	}
 
 	input[type="text"],
@@ -183,12 +297,23 @@
 	input[type="tel"],
 	textarea {
 		width: 100%;
-		padding: 0.75rem;
-		border: 1px solid #666;
+		padding: 1rem;
+		border: 1px solid #444;
 		border-radius: 4px;
 		font-size: 1rem;
-		background-color: #111;
+		background-color: transparent;
 		color: #fff;
+		transition: border-color 0.2s ease;
+	}
+
+	/* Override browser autofill styles */
+	input:-webkit-autofill,
+	input:-webkit-autofill:hover,
+	input:-webkit-autofill:focus,
+	textarea:-webkit-autofill {
+		-webkit-box-shadow: 0 0 0 1000px #000 inset !important;
+		-webkit-text-fill-color: #fff !important;
+		caret-color: #fff;
 	}
 
 	input[type="text"]:focus,
@@ -196,48 +321,64 @@
 	input[type="tel"]:focus,
 	textarea:focus {
 		outline: none;
-		border-color: #fff;
+		border-color: #888;
+	}
+
+	textarea {
+		resize: vertical;
+		min-height: 120px;
 	}
 
 	.checkbox-group {
-		border: 1px solid #666;
+		border: 1px solid #444;
 		border-radius: 4px;
-		padding: 1rem;
-		margin-bottom: 1rem;
+		padding: 1.25rem;
+		margin-bottom: 1.75rem;
 	}
 
 	legend {
 		font-weight: 500;
 		padding: 0 0.5rem;
+		color: #ccc;
 	}
 
 	.checkbox-label {
 		display: flex;
 		align-items: center;
-		gap: 0.5rem;
-		margin-bottom: 0.5rem;
+		gap: 0.75rem;
+		margin-bottom: 0.75rem;
 		font-weight: normal;
 		cursor: pointer;
+		color: #ddd;
+		transition: color 0.2s ease;
+	}
+
+	.checkbox-label:hover {
+		color: #fff;
 	}
 
 	.checkbox-label input[type="checkbox"] {
-		width: auto;
-		accent-color: #999;
+		width: 1.1rem;
+		height: 1.1rem;
+		accent-color: #888;
+		cursor: pointer;
 	}
 
 	button {
-		background-color: #333;
-		color: #fff;
-		padding: 0.75rem 2rem;
+		background-color: #fff;
+		color: #000;
+		padding: 0.875rem 2.5rem;
 		border: none;
 		border-radius: 4px;
 		font-size: 1rem;
 		font-weight: 600;
 		cursor: pointer;
-		transition: background-color 0.2s;
+		transition: all 0.2s ease;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
 	}
 
 	button:hover {
-		background-color: #555;
+		background-color: #ddd;
 	}
 </style>
