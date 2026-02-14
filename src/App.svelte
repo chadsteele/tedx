@@ -15,6 +15,42 @@
 		document
 			.querySelector('meta[name="description"]')
 			.setAttribute("content", config.description)
+
+		// Scroll to hash helper
+		const scrollToHash = () => {
+			if (window.location.hash) {
+				const target = document.querySelector(window.location.hash)
+				if (target) {
+					target.scrollIntoView({ behavior: 'smooth' })
+				}
+			}
+		}
+
+		// Scroll immediately
+		scrollToHash()
+
+		// Re-scroll after all images load (fixes layout shift issues)
+		const images = document.querySelectorAll('img')
+		let loadedCount = 0
+		const totalImages = images.length
+
+		if (totalImages > 0) {
+			images.forEach(img => {
+				if (img.complete) {
+					loadedCount++
+					if (loadedCount === totalImages) scrollToHash()
+				} else {
+					img.addEventListener('load', () => {
+						loadedCount++
+						if (loadedCount === totalImages) scrollToHash()
+					}, { once: true })
+					img.addEventListener('error', () => {
+						loadedCount++
+						if (loadedCount === totalImages) scrollToHash()
+					}, { once: true })
+				}
+			})
+		}
 	})
 </script>
 
