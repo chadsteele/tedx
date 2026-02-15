@@ -4,11 +4,17 @@
 	let phone = ""
 	let message = ""
 
-	let volunteer = false
-	let advertise = false
-	let donate = false
-	let nominateSpeaker = false
-	let mailingList = false
+	const checkboxOptions = [
+		{name: "tickets", label: "I want to buy a ticket to the event"},
+		{name: "volunteer", label: "I want to volunteer"},
+		{name: "advertise", label: "I want to advertise"},
+		{name: "donate", label: "I want to donate"},
+		{name: "nominateSpeaker", label: "I want to nominate a speaker"},
+		{name: "mailingList", label: "I want on your mailing list"},
+	]
+
+	let checkboxes = {}
+	checkboxOptions.forEach((opt) => (checkboxes[opt.name] = false))
 
 	let submitted = false
 	let error = ""
@@ -163,46 +169,16 @@
 		<fieldset class="checkbox-group">
 			<legend>Select</legend>
 
-			<label class="checkbox-label">
-				<input
-					type="checkbox"
-					name="volunteer"
-					bind:checked={volunteer}
-				/>
-				I want to volunteer
-			</label>
-
-			<label class="checkbox-label">
-				<input
-					type="checkbox"
-					name="advertise"
-					bind:checked={advertise}
-				/>
-				I want to advertise
-			</label>
-
-			<label class="checkbox-label">
-				<input type="checkbox" name="donate" bind:checked={donate} />
-				I want to donate
-			</label>
-
-			<label class="checkbox-label">
-				<input
-					type="checkbox"
-					name="nominateSpeaker"
-					bind:checked={nominateSpeaker}
-				/>
-				I want to nominate a speaker
-			</label>
-
-			<label class="checkbox-label">
-				<input
-					type="checkbox"
-					name="mailingList"
-					bind:checked={mailingList}
-				/>
-				I want on your list
-			</label>
+			{#each checkboxOptions as option}
+				<label class="checkbox-label">
+					<input
+						type="checkbox"
+						name={option.name}
+						bind:checked={checkboxes[option.name]}
+					/>
+					{option.label}
+				</label>
+			{/each}
 		</fieldset>
 
 		<div class="form-group">
