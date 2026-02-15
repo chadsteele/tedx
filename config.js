@@ -22,6 +22,10 @@ export default {
 
 get content() { return [ `
 
+    <h1>Our Mission</h1>
+   To bring together thought leaders, innovators, and changemakers to explore the questions that will define tomorrow sparking conversations that inspire action and create lasting impact.
+
+
 	<img src="/images/backgrounds/tedx-background.png" alt="TEDx event background" class="full-width hero-image" />
 
         <h2>TEDx, Mauritius on ${this.date}</h2>
