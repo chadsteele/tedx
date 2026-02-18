@@ -272,8 +272,27 @@
 		line-height: 1.5;
 		margin: 0;
 		max-height: 150px;
-		overflow-y: auto;
+		overflow-y: scroll;
+		overflow-x: hidden;
 		word-wrap: break-word;
+		scrollbar-gutter: stable;
+	}
+
+	.description::-webkit-scrollbar {
+		width: 6px;
+	}
+
+	.description::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	.description::-webkit-scrollbar-thumb {
+		background: #ccc;
+		border-radius: 3px;
+	}
+
+	.description::-webkit-scrollbar-thumb:hover {
+		background: #999;
 	}
 
 	@media (max-width: 600px) {
