@@ -72,6 +72,9 @@ export default {
         subname: `Commodity Trade Finance Associate`,
         description: `Commodity Trade Finance Associate at Mauritius Commercial Bank (MCB), specializing in Energy & Commodities.`,
       },
+
+
+
       {type: 'profilecard',
         profileImage: '/images/speakers/Fred Swaniker.png',
         link: 'https://alcheducation.com/our-leadership/#:~:text=Fred%20Swaniker',
@@ -105,6 +108,16 @@ export default {
         subname: 'Digital Humanities and African Arts and Culture',
         description: 'Working to increase access to historical and contemporary African and Afro-diasporic knowledge through art, cultural programming and digital interventions which fuel cultural dynamism and drive social change.'
         },
+         {
+        type: 'profilecard',
+        profileImage: '/images/team/lisette-mukiza.png',
+        link: 'https://www.linkedin.com/in/lisette-mukiza/',
+        title: 'Co-Founder',
+        subtitle: 'Web3 & EdTech Enthusiast',
+        name: 'LISETTE MUKIZA',
+        subname: 'Mastercard Foundation Scholar at ALCHE',
+        description: `Excited about TEDx and exploring technology, education, and urban systems to solve African youth challenges. Focused on how practical technology, data, and local solutions can improve access to education, useful skills, and economic opportunities for young people in under-resourced communities. Building skills in problem analysis, systems thinking, ethical technology design, and impact-focused innovation to design and scale education technologies that help African youth discover their strengths and access sustainable livelihoods.`,
+      },
         {
         type: 'profilecard',
         profileImage: '/images/team/patii.png',
