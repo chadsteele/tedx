@@ -220,6 +220,7 @@
 		object-fit: cover;
 		animation: slideUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 		z-index: 2;
+		border-radius: 15px;
 	}
 
 	.info-overlay {
