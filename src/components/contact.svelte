@@ -2,6 +2,7 @@
 	let name = ""
 	let email = ""
 	let phone = ""
+	let url = ""
 	let message = ""
 
 	const checkboxOptions = [
@@ -127,7 +128,7 @@
 				id="name"
 				name="name"
 				bind:value={name}
-				placeholder=" "
+				placeholder="John Doe"
 				class:input-error={errors.name}
 			/>
 			<label for="name">Name</label>
@@ -142,7 +143,7 @@
 				id="email"
 				name="email"
 				bind:value={email}
-				placeholder=" "
+				placeholder="you@example.com"
 				class:input-error={errors.email}
 			/>
 			<label for="email">Email</label>
@@ -157,13 +158,24 @@
 				id="phone"
 				name="phone"
 				bind:value={phone}
-				placeholder=" "
+				placeholder="+123 456 7890"
 				class:input-error={errors.phone}
 			/>
 			<label for="phone">Phone</label>
 			{#if errors.phone}
 				<span class="field-error">{errors.phone}</span>
 			{/if}
+		</div>
+
+		<div class="form-group">
+			<input
+				type="text"
+				id="url"
+				name="url"
+				bind:value={url}
+				placeholder="https://linkedin.com/in/yourprofile"
+			/>
+			<label for="url">Profile URL</label>
 		</div>
 
 		<fieldset class="checkbox-group">
@@ -248,7 +260,7 @@
 		position: absolute;
 		left: 1rem;
 		top: 1rem;
-		font-size: 1rem;
+		font-size: 1.33rem;
 		color: #999;
 		pointer-events: none;
 		transition: all 0.2s ease;
@@ -262,7 +274,7 @@
 	.form-group textarea:not(:placeholder-shown) + label {
 		top: -0.6rem;
 		left: 0.75rem;
-		font-size: 0.75rem;
+		font-size: 1rem;
 		color: #ccc;
 		background-color: #000;
 		padding: 0 0.35rem;
@@ -271,15 +283,33 @@
 	input[type="text"],
 	input[type="email"],
 	input[type="tel"],
+	input[type="url"],
 	textarea {
 		width: 100%;
 		padding: 1rem;
 		border: 1px solid #444;
 		border-radius: 4px;
-		font-size: 1rem;
+		font-size: 1.33rem;
 		background-color: transparent;
 		color: #fff;
 		transition: border-color 0.2s ease;
+	}
+
+	input[type="text"]::placeholder,
+	input[type="email"]::placeholder,
+	input[type="tel"]::placeholder,
+	input[type="url"]::placeholder,
+	textarea::placeholder {
+		color: transparent;
+	}
+
+	input[type="text"]:focus::placeholder,
+	input[type="email"]:focus::placeholder,
+	input[type="tel"]:focus::placeholder,
+	input[type="url"]:focus::placeholder,
+	textarea:focus::placeholder {
+		color: #666;
+		opacity: 0.7;
 	}
 
 	/* Override browser autofill styles */
@@ -295,6 +325,7 @@
 	input[type="text"]:focus,
 	input[type="email"]:focus,
 	input[type="tel"]:focus,
+	input[type="url"]:focus,
 	textarea:focus {
 		outline: none;
 		border-color: #888;
@@ -346,7 +377,7 @@
 		padding: 0.875rem 2.5rem;
 		border: none;
 		border-radius: 4px;
-		font-size: 1rem;
+		font-size: 1.33rem;
 		font-weight: 600;
 		cursor: pointer;
 		transition: all 0.2s ease;

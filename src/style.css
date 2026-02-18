@@ -15,7 +15,7 @@ html {
   margin-bottom: 60px;
 }
 
-[id]{
+[id]:not(form *){
   padding-top:70px !important;
 }
 
