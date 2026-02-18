@@ -25,7 +25,7 @@ export default {
         `
         <h1>Our Mission</h1>
         <p>To bring together thought leaders, innovators, and changemakers to explore the questions that will define tomorrow sparking conversations that inspire action and create lasting impact.</p>
-        <img src="/images/backgrounds/tedx-background.png" alt="TEDx event background" class="full-width hero-image" />
+        <img src="/images/backgrounds/tedx-background.png" alt="TEDx event background" class="full-width " />
         <h2>TEDx, Mauritius on ${this.date}</h2>
         <p>Hosted by the African Leadership College of Higher Education.</p>
         <p>ALCHE provides higher education for a higher purpose. We believe that young people hold the potential to become the ethical, entrepreneurial leaders our continent and planet need. Our role is to unlock that potential through a one-of-a-kind learning experience that gives students the foundation for a lifetime of leading positive change.</p>
@@ -53,6 +53,18 @@ export default {
 
         <h2>Nominated Speakers</h2><i>Unconfirmed and subject to change</i>
          `,
+
+
+
+      {type: 'profilecard',
+        profileImage: '/images/speakers/Fred Swaniker.png',
+        link: 'https://alcheducation.com/our-leadership/#:~:text=Fred%20Swaniker',
+        title: 'Keynote',
+        subtitle: 'ALCHE Founder',
+        name: 'FRED SWANIKER',
+        subname: 'Founder of African Leadership Group',
+        description: `Fred was recognized twice by US President Obama in 2010 and 2013 for his work in developing Africa’s future leaders. He has been recognised as a Young Global Leader by the World Economic Forum, by Forbes Magazine as one of the top ten young ‘power men’ in Africa, and by Echoing Green as one of the fifteen ‘best emerging social entrepreneurs in the world’. He is a Fellow of the Aspen Institute’s Global Leadership Network and was a TED Fellow in 2009. Fred founded the African Leadership ‘Group’—an ecosystem of organizations that includes African Leadership Academy, African Leadership Network, Africa Advisory Group, and of course, ALCHE. Collectively, these institutions aim to transform Africa by identifying, developing, and connecting three million game-changing leaders for Africa by 2060.`,
+      },
       {
         type: 'profilecard',
         profileImage: '/images/speakers/SUSHRUTHI.png',
@@ -74,16 +86,6 @@ export default {
       },
 
 
-
-      {type: 'profilecard',
-        profileImage: '/images/speakers/Fred Swaniker.png',
-        link: 'https://alcheducation.com/our-leadership/#:~:text=Fred%20Swaniker',
-        title: 'Keynote',
-        subtitle: 'ALCHE Founder',
-        name: 'FRED SWANIKER',
-        subname: 'Founder of African Leadership Group',
-        description: `Fred was recognized twice by US President Obama in 2010 and 2013 for his work in developing Africa’s future leaders. He has been recognised as a Young Global Leader by the World Economic Forum, by Forbes Magazine as one of the top ten young ‘power men’ in Africa, and by Echoing Green as one of the fifteen ‘best emerging social entrepreneurs in the world’. He is a Fellow of the Aspen Institute’s Global Leadership Network and was a TED Fellow in 2009. Fred founded the African Leadership ‘Group’—an ecosystem of organizations that includes African Leadership Academy, African Leadership Network, Africa Advisory Group, and of course, ALCHE. Collectively, these institutions aim to transform Africa by identifying, developing, and connecting three million game-changing leaders for Africa by 2060.`,
-      },
 
 
 
@@ -112,11 +114,18 @@ export default {
         type: 'profilecard',
         profileImage: '/images/team/lisette-mukiza.png',
         link: 'https://www.linkedin.com/in/lisette-mukiza/',
-        title: 'Co-Founder',
-        subtitle: 'Web3 & EdTech Enthusiast',
+
+
+                title: 'Co-Organizer',
+        subtitle: 'EdTech Enthusiast',
         name: 'LISETTE MUKIZA',
-        subname: 'Mastercard Foundation Scholar at ALCHE',
-        description: `Excited about TEDx and exploring technology, education, and urban systems to solve African youth challenges. Focused on how practical technology, data, and local solutions can improve access to education, useful skills, and economic opportunities for young people in under-resourced communities. Building skills in problem analysis, systems thinking, ethical technology design, and impact-focused innovation to design and scale education technologies that help African youth discover their strengths and access sustainable livelihoods.`,
+        subname: 'Technologist & Leader',
+
+        description: `Software Engineering student at the African Leadership College of Higher Education (ALCHE) in Mauritius and the SRC Academic Affairs Committee Head. She focuses on using technology and education to address youth challenges across Africa, with an emphasis on solving systemic problems.
+
+She has worked on research and team projects exploring youth unemployment, education-to-work pathways, and urban systems in African contexts, building skills in systems thinking, problem analysis, and ethical technology design.
+
+As a TEDxALCHE co-organizer, she aims to create a platform for meaningful conversations on leadership, innovation, education, and social impact. She believes that when young people are given space to share ideas, they can drive positive change in their communities.`,
       },
         {
         type: 'profilecard',
@@ -134,7 +143,7 @@ export default {
         title: 'DIRECTOR',
         subtitle: 'Finance',
         name: 'Ayomide Ajayi',
-        subname: 'Entrepreneurial Leadership Student',
+        subname: 'Investment Analyst',
         description: 'Entrepreneurial Leadership Student at ALCHE, bridging the capital gap for Africa\'s infrastructure.'
         },
         {

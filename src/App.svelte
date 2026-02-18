@@ -30,8 +30,13 @@
 		const visibilityTimeouts = new Map()
 		const observedElements = new Set()
 		let currentHashElement = null
+		let isUserScrolling = false
+		let scrollTimeout = null
 
 		const updateHashForTopmost = () => {
+			// Don't update hash while user is actively scrolling
+			if (isUserScrolling) return
+
 			// Find the topmost visible element
 			let topmost = null
 			let topmostDistance = Infinity
@@ -51,21 +56,8 @@
 
 			// Update hash only if topmost element changed
 			if (topmost && topmost !== currentHashElement) {
-				// Clear any old timeout
-				if (
-					currentHashElement &&
-					visibilityTimeouts.has(currentHashElement.id)
-				) {
-					clearTimeout(visibilityTimeouts.get(currentHashElement.id))
-					visibilityTimeouts.delete(currentHashElement.id)
-				}
-
 				currentHashElement = topmost
-				const timeout = setTimeout(() => {
-					window.location.hash = topmost.id
-					visibilityTimeouts.delete(topmost.id)
-				}, 3000)
-				visibilityTimeouts.set(topmost.id, timeout)
+				history.replaceState(null, null, "#" + topmost.id)
 			}
 		}
 
@@ -104,8 +96,17 @@
 			globalObserver.observe(el)
 		})
 
-		// Track scroll to update topmost element
-		window.addEventListener("scroll", updateHashForTopmost, {passive: true})
+		// Track user scrolling with debounce
+		const handleScroll = () => {
+			isUserScrolling = true
+			clearTimeout(scrollTimeout)
+			scrollTimeout = setTimeout(() => {
+				isUserScrolling = false
+				updateHashForTopmost()
+			}, 500)
+		}
+
+		window.addEventListener("scroll", handleScroll, {passive: true})
 
 		// Watch for dynamically added elements with IDs
 		const mutationObserver = new MutationObserver((mutations) => {
@@ -130,7 +131,13 @@
 			subtree: true,
 		})
 
-		// Scroll immediately
+		// Listen for manual hash changes (user clicks back/forward, types URL, clicks link)
+		const handleHashChange = () => {
+			scrollToHash()
+		}
+		window.addEventListener("hashchange", handleHashChange)
+
+		// Scroll immediately on page load/refresh
 		scrollToHash()
 
 		// Re-scroll after all images load (fixes layout shift issues)
@@ -167,7 +174,9 @@
 		return () => {
 			globalObserver.disconnect()
 			mutationObserver.disconnect()
-			window.removeEventListener("scroll", updateHashForTopmost)
+			window.removeEventListener("scroll", handleScroll)
+			window.removeEventListener("hashchange", handleHashChange)
+			clearTimeout(scrollTimeout)
 			visibilityTimeouts.forEach((timeout) => clearTimeout(timeout))
 		}
 	})
