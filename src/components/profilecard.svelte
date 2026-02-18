@@ -44,8 +44,8 @@
 
 	<div class="white-box">
 		<div class="vertical-text">
-			<span class="speaker-label">{title}</span>
-			<span class="date-label">{subtitle}</span>
+			<span class="speaker-label">{@html title}</span>
+			<span class="date-label">{@html subtitle}</span>
 		</div>
 
 		<div class="img-wrapper">
@@ -53,8 +53,8 @@
 		</div>
 	</div>
 	<div class="info-overlay">
-		<h1 class="title">{name}</h1>
-		<h2 class="subtitle">{subname}</h2>
+		<h1 class="title">{@html name}</h1>
+		<h2 class="subtitle">{@html subname}</h2>
 		<hr class="divider" />
 		<div class="description">
 			{description}

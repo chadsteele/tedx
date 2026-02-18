@@ -27,16 +27,11 @@
 		}
 
 		// Global observer for all elements with IDs
-		const visibilityTimeouts = new Map()
 		const observedElements = new Set()
 		let currentHashElement = null
-		let isUserScrolling = false
 		let scrollTimeout = null
 
 		const updateHashForTopmost = () => {
-			// Don't update hash while user is actively scrolling
-			if (isUserScrolling) return
-
 			// Find the topmost visible element
 			let topmost = null
 			let topmostDistance = Infinity
@@ -71,13 +66,6 @@
 						changed = true
 					} else {
 						observedElements.delete(entry.target)
-						// Clear timeout if this element leaves view
-						if (visibilityTimeouts.has(entry.target.id)) {
-							clearTimeout(
-								visibilityTimeouts.get(entry.target.id),
-							)
-							visibilityTimeouts.delete(entry.target.id)
-						}
 						if (entry.target === currentHashElement) {
 							currentHashElement = null
 						}
@@ -98,10 +86,8 @@
 
 		// Track user scrolling with debounce
 		const handleScroll = () => {
-			isUserScrolling = true
 			clearTimeout(scrollTimeout)
 			scrollTimeout = setTimeout(() => {
-				isUserScrolling = false
 				updateHashForTopmost()
 			}, 500)
 		}
@@ -177,7 +163,6 @@
 			window.removeEventListener("scroll", handleScroll)
 			window.removeEventListener("hashchange", handleHashChange)
 			clearTimeout(scrollTimeout)
-			visibilityTimeouts.forEach((timeout) => clearTimeout(timeout))
 		}
 	})
 </script>

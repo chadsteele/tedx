@@ -161,8 +161,8 @@ As a TEDxALCHE co-organizer, she aims to create a platform for meaningful conver
         profileImage: '/images/team/pretty.png',
         title: 'SPIRITUAL',
         subtitle: 'Teacher',
-        name: 'Pretty',
-        subname: 'Animal Ambassador | Master at Play, Love and Happiness',
+        name: 'Pretty, PhD',
+        subname: `Animal Ambassador,  PhD in Play, Love and Happiness`,
         description: 'Pretty is our beloved stray dog and the heart of Mauritius. She, like all the others, teach joy and comfort to everyone around her.'
         }
     ];
