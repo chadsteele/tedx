@@ -72,6 +72,48 @@ export default {
         subname: `Commodity Trade Finance Associate`,
         description: `Commodity Trade Finance Associate at Mauritius Commercial Bank (MCB), specializing in Energy & Commodities.`,
       },
+      {type: 'profilecard',
+        profileImage: '/images/speakers/Fred Swaniker.png',
+        link: 'https://alcheducation.com/our-leadership/#:~:text=Fred%20Swaniker',
+        title: 'Speaker',
+        subtitle: 'ALCHE Founder',
+        name: 'FRED SWANIKER',
+        subname: 'Founder of African Leadership Group',
+        description: `Fred was recognized twice by US President Obama in 2010 and 2013 for his work in developing Africa’s future leaders. He has been recognised as a Young Global Leader by the World Economic Forum, by Forbes Magazine as one of the top ten young ‘power men’ in Africa, and by Echoing Green as one of the fifteen ‘best emerging social entrepreneurs in the world’. He is a Fellow of the Aspen Institute’s Global Leadership Network and was a TED Fellow in 2009. Fred founded the African Leadership ‘Group’—an ecosystem of organizations that includes African Leadership Academy, African Leadership Network, Africa Advisory Group, and of course, ALCHE. Collectively, these institutions aim to transform Africa by identifying, developing, and connecting three million game-changing leaders for Africa by 2060.`,
+      },
+      {
+        type: 'profilecard',
+        profileImage: '/images/speakers/veda-sunassee.png',
+             link: 'https://alcheducation.com/our-leadership/#:~:text=Veda%20Sunassee',
+        title: 'SPEAKER',
+        subtitle: 'ALCHE, CEO',
+        name: 'Veda Sunassee',
+        subname: 'Educator & Leader',
+        description: `As an educator at heart, Veda has spent a decade in several roles with the African Leadership (AL) Group, first as an Entrepreneurial Leadership Faculty at the African Leadership Academy before later serving as the Founding Dean of the African Leadership University (ALU), Rwanda for 2 years. Veda is currently serving as the Chief Executive Officer of ALC & ALU, overseeing operations across both the Mauritius and Rwanda campuses while steering the institution's new 5-year strategy to become a 'distributed university' across the world. He has helped develop the leadership model of central to the mandate of the AL Group- to develop 3 million African Leaders by 2035. During a sabbatical that he took in 2019, Veda co-founded NiaDelta, a Leadership and Education consulting firm that advises corporate C-suites as well as education leaders.`
+      },
+      {
+        type: 'profilecard',
+        profileImage: '/images/speakers/jeremy-ruiters.png',
+             link: 'https://alcheducation.com/our-leadership/#:~:text=Jeremy%20Ruiters',
+        title: 'SPEAKER',
+        subtitle: 'ALCHE, Dean',
+        name: 'Jeremy Ruiters',
+        subname: 'Psychologist & Administrator',
+        description: `Master of Arts: Psychology. Master of Business Administration (MBA). Jeremy John Ruiters is a dedicated psychologist and accomplished leader with over a decade of experience in university administration. Currently serving as the Dean of the Mauritius campus at the African Leadership College of Higher Education (ALCHE), Jeremy brings a wealth of knowledge in student development and program management. With a Masters Degree in Psychology and a Masters in Business Administration (MBA) specializing in leadership, Jeremy has a deep understanding of human behavior and organizational dynamics. Jeremy is known for leading diverse teams and spearheading initiatives that enhance the student experience. He is committed to fostering student ownership and development, and is recognized for his problem-solving skills, empathy, and strategic vision.`
+      },
+      {
+        type: 'profilecard',
+        profileImage: '/images/speakers/stephen-naicken.png',
+             link: 'https://alcheducation.com/our-leadership/#:~:text=Stephen%20Naicken',
+        title: 'SPEAKER',
+        subtitle: 'ALCHE, Academic Programmes',
+        name: 'Stephen Naicken',
+        subname: 'Computer Scientist & Educator',
+        description: `BSc (Hons) Computer Science, MRes Computer Science and Artificial Intelligence, PhD Informatics. Dr. Stephen Naicken is the Director of Academic Programmes at the African Leadership College of Higher Education (ALCHE) in Mauritius. He holds a Ph.D. in Informatics from the University of Sussex and has extensive experience in higher education and research. His interests include computer science education, computational trust, and delay-tolerant networking. He has numerous publications in reputable journals and conferences, and his work as a research fellow at the University of Sussex led to the creation of a university-back entrepreneurial venture. His faculty and curriculum development leadership, with a student-first focus, ensures the academic programs remain cutting-edge and impactful.`
+      },
+
+
+
 
           `<h1 id="about" style="padding-top:50px">About us</h1>`,
         {

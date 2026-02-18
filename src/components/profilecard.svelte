@@ -270,6 +270,9 @@
 		font-size: clamp(0.7rem, 1.5vw, 0.9rem);
 		line-height: 1.5;
 		margin: 0;
+		max-height: 150px;
+		overflow-y: auto;
+		word-wrap: break-word;
 	}
 
 	@media (max-width: 600px) {
