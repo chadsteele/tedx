@@ -30,15 +30,8 @@
 		const visibilityTimeouts = new Map()
 		const observedElements = new Set()
 		let currentHashElement = null
-		let hashUpdateTimeout = null
 
 		const updateHashForTopmost = () => {
-			// Clear any pending hash update
-			if (hashUpdateTimeout) {
-				clearTimeout(hashUpdateTimeout)
-				hashUpdateTimeout = null
-			}
-
 			// Find the topmost visible element
 			let topmost = null
 			let topmostDistance = Infinity
@@ -58,10 +51,21 @@
 
 			// Update hash only if topmost element changed
 			if (topmost && topmost !== currentHashElement) {
+				// Clear any old timeout
+				if (
+					currentHashElement &&
+					visibilityTimeouts.has(currentHashElement.id)
+				) {
+					clearTimeout(visibilityTimeouts.get(currentHashElement.id))
+					visibilityTimeouts.delete(currentHashElement.id)
+				}
+
 				currentHashElement = topmost
-				hashUpdateTimeout = setTimeout(() => {
+				const timeout = setTimeout(() => {
 					window.location.hash = topmost.id
+					visibilityTimeouts.delete(topmost.id)
 				}, 3000)
+				visibilityTimeouts.set(topmost.id, timeout)
 			}
 		}
 
@@ -75,6 +79,13 @@
 						changed = true
 					} else {
 						observedElements.delete(entry.target)
+						// Clear timeout if this element leaves view
+						if (visibilityTimeouts.has(entry.target.id)) {
+							clearTimeout(
+								visibilityTimeouts.get(entry.target.id),
+							)
+							visibilityTimeouts.delete(entry.target.id)
+						}
 						if (entry.target === currentHashElement) {
 							currentHashElement = null
 						}
@@ -157,9 +168,7 @@
 			globalObserver.disconnect()
 			mutationObserver.disconnect()
 			window.removeEventListener("scroll", updateHashForTopmost)
-			if (hashUpdateTimeout) {
-				clearTimeout(hashUpdateTimeout)
-			}
+			visibilityTimeouts.forEach((timeout) => clearTimeout(timeout))
 		}
 	})
 </script>
@@ -207,8 +216,14 @@
 		margin: 0;
 		padding: 0;
 	}
+	:global([id]) {
+		scroll-margin-top: 100px;
+	}
 	:global([id].hidden-until-view) {
 		opacity: 0;
 		pointer-events: none;
+	}
+	:global([id]:target) {
+		outline: none;
 	}
 </style>
