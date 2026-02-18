@@ -21,35 +21,145 @@
 			if (window.location.hash) {
 				const target = document.querySelector(window.location.hash)
 				if (target) {
-					target.scrollIntoView({ behavior: 'smooth' })
+					target.scrollIntoView({behavior: "smooth"})
 				}
 			}
 		}
+
+		// Global observer for all elements with IDs
+		const visibilityTimeouts = new Map()
+		const observedElements = new Set()
+		let currentHashElement = null
+		let hashUpdateTimeout = null
+
+		const updateHashForTopmost = () => {
+			// Clear any pending hash update
+			if (hashUpdateTimeout) {
+				clearTimeout(hashUpdateTimeout)
+				hashUpdateTimeout = null
+			}
+
+			// Find the topmost visible element
+			let topmost = null
+			let topmostDistance = Infinity
+
+			observedElements.forEach((el) => {
+				const rect = el.getBoundingClientRect()
+				// Check if element is visible
+				if (rect.top < window.innerHeight && rect.bottom > 0) {
+					// Calculate distance from top of viewport
+					const distance = Math.max(0, rect.top)
+					if (distance < topmostDistance) {
+						topmostDistance = distance
+						topmost = el
+					}
+				}
+			})
+
+			// Update hash only if topmost element changed
+			if (topmost && topmost !== currentHashElement) {
+				currentHashElement = topmost
+				hashUpdateTimeout = setTimeout(() => {
+					window.location.hash = topmost.id
+				}, 3000)
+			}
+		}
+
+		const globalObserver = new IntersectionObserver(
+			(entries) => {
+				let changed = false
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.remove("hidden-until-view")
+						observedElements.add(entry.target)
+						changed = true
+					} else {
+						observedElements.delete(entry.target)
+						if (entry.target === currentHashElement) {
+							currentHashElement = null
+						}
+						changed = true
+					}
+				})
+				if (changed) {
+					updateHashForTopmost()
+				}
+			},
+			{threshold: 0.5},
+		)
+
+		// Observe all elements with IDs
+		document.querySelectorAll("[id]").forEach((el) => {
+			globalObserver.observe(el)
+		})
+
+		// Track scroll to update topmost element
+		window.addEventListener("scroll", updateHashForTopmost, {passive: true})
+
+		// Watch for dynamically added elements with IDs
+		const mutationObserver = new MutationObserver((mutations) => {
+			mutations.forEach((mutation) => {
+				mutation.addedNodes.forEach((node) => {
+					if (node.nodeType === 1) {
+						// Element node
+						if (node.id) {
+							globalObserver.observe(node)
+						}
+						// Also check for elements with IDs inside the added node
+						node.querySelectorAll?.("[id]").forEach((el) => {
+							globalObserver.observe(el)
+						})
+					}
+				})
+			})
+		})
+
+		mutationObserver.observe(document.querySelector(".ted-content"), {
+			childList: true,
+			subtree: true,
+		})
 
 		// Scroll immediately
 		scrollToHash()
 
 		// Re-scroll after all images load (fixes layout shift issues)
-		const images = document.querySelectorAll('img')
+		const images = document.querySelectorAll("img")
 		let loadedCount = 0
 		const totalImages = images.length
 
 		if (totalImages > 0) {
-			images.forEach(img => {
+			images.forEach((img) => {
 				if (img.complete) {
 					loadedCount++
 					if (loadedCount === totalImages) scrollToHash()
 				} else {
-					img.addEventListener('load', () => {
-						loadedCount++
-						if (loadedCount === totalImages) scrollToHash()
-					}, { once: true })
-					img.addEventListener('error', () => {
-						loadedCount++
-						if (loadedCount === totalImages) scrollToHash()
-					}, { once: true })
+					img.addEventListener(
+						"load",
+						() => {
+							loadedCount++
+							if (loadedCount === totalImages) scrollToHash()
+						},
+						{once: true},
+					)
+					img.addEventListener(
+						"error",
+						() => {
+							loadedCount++
+							if (loadedCount === totalImages) scrollToHash()
+						},
+						{once: true},
+					)
 				}
 			})
+		}
+
+		return () => {
+			globalObserver.disconnect()
+			mutationObserver.disconnect()
+			window.removeEventListener("scroll", updateHashForTopmost)
+			if (hashUpdateTimeout) {
+				clearTimeout(hashUpdateTimeout)
+			}
 		}
 	})
 </script>
@@ -58,7 +168,7 @@
 
 <main class="ted-body">
 	<section class="ted-content">
-		<h1 id="home">We are ALCHE, Mauritius</h1>
+		<h1 id="home" class="hidden-until-view">We are ALCHE, Mauritius</h1>
 		<div
 			style="margin-top: 20px; font-size: 1.2em; line-height: 1.5; color: gray; min-height: 100px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 1rem 0;"
 		>
@@ -67,57 +177,19 @@
 
 		<div class="content">
 			{#each config.content as item}
-				{#each item.split("\n") as line}
-					<p>{@html line}</p>
-				{/each}
+				{#if typeof item === "object" && item.type === "profilecard"}
+					<ProfileCard {...item} />
+				{:else if typeof item === "string"}
+					{#each item.split("\n") as line}
+						<p>{@html line}</p>
+					{/each}
+				{/if}
 			{/each}
 		</div>
 
-		<script>
-		</script>
-
-		<h1 id="speakers">Speakers</h1>
-		<h2>Nominate someone amazing, perhaps that someone is you?!</h2>
-		<p>
-			This is just a sample description. We will update this section with
-			the actual speaker lineup once we have it finalized. Stay tuned for
-			some incredible talks and inspiring stories from our amazing
-			speakers!
-		</p>
-		<a href="#contact" class="ted-link">Nominate a speaker</a>
-
-		<ProfileCard
-			profileImage="/images/speaker.png"
-			link="https://www.ted.com/talks/sushruthi_krishna_the_success_story_of_a_girl_from_bangalore"
-			title="SPEAKER"
-			subtitle="change maker"
-			name="SUSHRUTHI KRISHNA"
-			subname="Model & Architect"
-			description="Too often we underestimate the power of a touch, a smile, a kind word, a listening ear, an honest compliment, the smallest act of caring, all of which have the potential to turn a life around."
-		/>
-
-		<h1 id="about" style="padding-top:50px">About us</h1>
-
-		<ProfileCard
-			profileImage="/images/team/ishimwe.png"
-			link="https://www.linkedin.com/in/ishimweolivier/"
-			title="FOUNDER"
-			subtitle="CEO"
-			name="Olivier ISHIMWE"
-			subname="Impact-Driven Entrepreneur"
-			description={`Entrepreneurial Leadership student at the African Leadership College of Higher Education, passionate about education, digital innovation, and youth empowerment. Dedicated to fostering a culture of ideas worth spreading and inspiring positive change in the community.`}
-		/>
-
-		<ProfileCard
-			profileImage="/images/team/patii.png"
-			title="DIRECTOR"
-			subtitle="Marketing"
-			name="Patii"
-			subname="Comms & Marketing Specialist"
-			description={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`}
-		/>
-
-		<h1 id="contact" style="padding-top:50px">Contact us</h1>
+		<h1 id="contact" style="padding-top:50px" class="hidden-until-view">
+			Contact us
+		</h1>
 		<Contact />
 	</section>
 </main>
@@ -134,5 +206,9 @@
 	:global(body) {
 		margin: 0;
 		padding: 0;
+	}
+	:global([id].hidden-until-view) {
+		opacity: 0;
+		pointer-events: none;
 	}
 </style>

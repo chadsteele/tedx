@@ -16,7 +16,7 @@ html {
 }
 
 [id]{
-  padding-top:70px
+  padding-top:70px !important;
 }
 
 ul {

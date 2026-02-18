@@ -1,48 +1,37 @@
 <script>
-	import {onMount} from "svelte"
-
+	export let id
 	export let profileImage
 	export let name
 	export let subname
 	export let title
 	export let subtitle
 	export let description
-	export let logo = "/images/logos/logo.sun.png"
 	export let link = ""
+	export let type = "speaker"
 
-	let visible = false
 	let cardElement
 
-	onMount(() => {
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						visible = true
-						observer.unobserve(entry.target)
-					}
-				})
-			},
-			{threshold: 0.5},
-		)
-
-		if (cardElement) {
-			observer.observe(cardElement)
-		}
-
-		return () => observer.disconnect()
-	})
+	id =
+		(id || name) &&
+		(id || name)
+			.split(/\s+/)
+			.map(
+				(word) =>
+					word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(),
+			)
+			.join("")
 </script>
 
 <div
+	{id}
 	class="card-container"
-	class:visible
 	class:clickable={link}
 	bind:this={cardElement}
 	on:click={() => link && window.open(link)}
 	on:keydown={(e) => e.key === "Enter" && link && window.open(link)}
 	role="button"
 	tabindex="0"
+	class:hidden-until-view={true}
 >
 	<div class="background-decor">
 		<div
@@ -107,7 +96,8 @@
 	}
 
 	.card-container {
-		margin: 3em auto;
+		padding-top: 70px !important;
+		margin: 5em auto;
 		position: relative;
 		width: 100%;
 		max-width: 800px;
@@ -121,8 +111,8 @@
 		overflow: hidden;
 		border-radius: 5px;
 		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-		opacity: 0;
-		transform: translateY(30px);
+		opacity: 1;
+		transform: translateY(0);
 		transition:
 			opacity 0.6s ease-out,
 			transform 0.3s ease-out;
@@ -135,16 +125,6 @@
 	.card-container.clickable:hover,
 	.card-container.clickable:active {
 		transform: scale(1.1);
-	}
-
-	.card-container.clickable.visible:hover,
-	.card-container.clickable.visible:active {
-		transform: translateY(0) scale(1.1);
-	}
-
-	.card-container.visible {
-		opacity: 1;
-		transform: translateY(0);
 	}
 
 	.background-decor .circle {
@@ -292,18 +272,6 @@
 		margin: 0;
 	}
 
-	.footer-logo {
-		display: block;
-		height: 7em;
-		float: right;
-		animation: float 3s ease-in-out;
-	}
-
-	.footer-logo img {
-		height: 100%;
-		width: auto;
-	}
-
 	@media (max-width: 600px) {
 		.card-container {
 			margin: 3em auto;
@@ -360,10 +328,6 @@
 			width: 80px;
 			height: 80px;
 			border-width: 2rem;
-		}
-
-		.footer-logo {
-			display: block;
 		}
 	}
 </style>
