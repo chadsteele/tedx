@@ -7,6 +7,7 @@
 	import Logo from "./components/logo.svelte"
 	import Footer from "./components/footer.svelte"
 	import ProfileCard from "./components/profilecard.svelte"
+	import Slideshow from "./components/slideshow.svelte"
 	import Contact from "./components/contact.svelte"
 
 	onMount(() => {
@@ -180,12 +181,14 @@
 
 		<div class="content">
 			{#each config.content as item}
-				{#if typeof item === "object" && item.type === "profilecard"}
-					<ProfileCard {...item} />
-				{:else if typeof item === "string"}
+				{#if typeof item === "string"}
 					{#each item.split("\n") as line}
 						<p>{@html line}</p>
 					{/each}
+				{:else if typeof item === "object" && item.type === "profilecard"}
+					<ProfileCard {...item} />
+				{:else if typeof item === "object" && item.type === "slideshow"}
+					<Slideshow {...item} />
 				{/if}
 			{/each}
 		</div>
