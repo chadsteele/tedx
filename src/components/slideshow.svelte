@@ -2,6 +2,8 @@
 	export let path = "/images/slides"
 	export let fade = 1000
 	export let pause = 3000
+	export let kenBurnsTime = 12000
+	export let kenBurnsScale = 1.3
 
 	let images = []
 	let currentIndex = 0
@@ -85,7 +87,10 @@
 	})
 </script>
 
-<div class="slideshow">
+<div
+	class="slideshow"
+	style="--kenBurnsTime: {kenBurnsTime}ms; --kenBurnsScale: {kenBurnsScale}"
+>
 	{#if images.length > 0}
 		<!-- Current image (background) -->
 		<img
@@ -105,6 +110,15 @@
 </div>
 
 <style>
+	@keyframes ken-burns {
+		from {
+			transform: scale(1);
+		}
+		to {
+			transform: scale(var(--kenBurnsScale));
+		}
+	}
+
 	.slideshow {
 		width: 80%;
 		height: 400px;
@@ -123,6 +137,7 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+		animation: ken-burns var(--kenBurnsTime) ease-in-out infinite alternate;
 	}
 
 	img.bg {
