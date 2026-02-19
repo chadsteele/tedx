@@ -127,6 +127,16 @@ She has worked on research and team projects exploring youth unemployment, educa
 
 As a TEDxALCHE co-organizer, she aims to create a platform for meaningful conversations on leadership, innovation, education, and social impact. She believes that when young people are given space to share ideas, they can drive positive change in their communities.`,
       },
+      {
+        type: 'profilecard',
+        profileImage: '/images/team/stephy.png',
+        title: 'DIRECTOR',
+        subtitle: 'Operations',
+        name: 'RUKUNDO KEZA STEPHY',
+        subname: 'Education & Project Management Leader',
+        description: `Education enthusiast, passionate about project management, and about working and building teams. Dedicated to improving the education system across Africa, by working in different educational sectors and developing a deep understanding of what students need. Currently pursuing a bachelor's degree in Computer Science at the African Leadership College of Higher Education with the aim of improving education through the usage of technology.
+`,
+      },
         {
         type: 'profilecard',
         profileImage: '/images/team/patii.png',
