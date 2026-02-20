@@ -89,7 +89,10 @@
 
 <div
 	class="slideshow"
-	style="--kenBurnsTime: {kenBurnsTime}ms; --kenBurnsScale: {kenBurnsScale}"
+	style="--kenBurnsTime: {kenBurnsTime}ms; --kenBurnsScale: {kenBurnsScale}; --animation-play-state: {isPaused
+		? 'paused'
+		: 'running'}"
+	on:click={togglePause}
 >
 	{#if images.length > 0}
 		<!-- Current image (background) -->
