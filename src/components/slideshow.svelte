@@ -10,6 +10,7 @@
 	let nextIndex = 0
 	let showNext = false
 	let recentHistory = [] // Track last 3 shown images
+	let isPaused = false
 
 	export function setImages(imageList) {
 		images = imageList
@@ -40,7 +41,13 @@
 		return randomIndex
 	}
 
+	function togglePause() {
+		isPaused = !isPaused
+	}
+
 	function nextImage() {
+		if (isPaused) return
+
 		// Pick next image and fade it in over current
 		nextIndex = getRandomImageIndex()
 		showNext = true
@@ -93,6 +100,10 @@
 		? 'paused'
 		: 'running'}"
 	on:click={togglePause}
+	on:keydown={(e) =>
+		e.key === "Enter" || e.key === " " ? togglePause() : null}
+	role="button"
+	tabindex="0"
 >
 	{#if images.length > 0}
 		<!-- Current image (background) -->
@@ -133,6 +144,7 @@
 		background-color: #1a1a1a;
 		margin: 2rem auto;
 		position: relative;
+		cursor: pointer;
 	}
 
 	img {
@@ -141,6 +153,7 @@
 		height: 100%;
 		object-fit: cover;
 		animation: ken-burns var(--kenBurnsTime) ease-in-out infinite alternate;
+		animation-play-state: var(--animation-play-state);
 	}
 
 	img.bg {
@@ -155,5 +168,11 @@
 
 	img.fg.fade-in {
 		opacity: 1;
+	}
+
+	@media (max-width: 768px) {
+		.slideshow {
+			width: 100%;
+		}
 	}
 </style>
