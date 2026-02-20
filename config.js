@@ -130,6 +130,7 @@ As a TEDxALCHE co-organizer, she aims to create a platform for meaningful conver
       {
         type: 'profilecard',
         profileImage: '/images/team/stephy.png',
+        link: 'https://www.linkedin.com/in/stephyrukundo//',
         title: 'DIRECTOR',
         subtitle: 'Operations',
         name: 'RUKUNDO KEZA STEPHY',
